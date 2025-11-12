@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hi!</title>
+    <style>
+        :root{
+            --btn1-bg:hsl(196, 100%, 50%);
+            --black-clr: #000;
+            --white-clr: #fff;
+            --subboxes-clr:#008000;
+            --element-clr:#ff0000;
+        }
+
+        *{margin: 0; padding: 0; box-sizing: border-box;}
+        body{
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--black-clr);
+        }
+        #main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            gap: 20px;
+            width: 300px;
+        }
+        .container{
+            position: relative;
+            overflow: hidden;
+            width: 300px;
+            height: 375px;
+        }
+        .element{
+            width: 300px;
+            height: 375px;
+            position: fixed;
+            background: url("https://github.com/Spiderman-coding-88/Images_of_proj_cars/blob/main/contact_bg.jpg?raw=true") center/cover no-repeat;
+            opacity: 0.8;
+        }
+        .clipelem{
+            opacity: 0.5;
+        }
+        .subboxes{
+            background-color: var(--subboxes-clr);
+            width: 134px;
+            height: 134px;
+            position: absolute;
+            opacity: 0;
+        }
+        @keyframes child1 {
+            from { transform: translateX(120px) translateY(-120px); opacity: 1; }
+            to { transform: translateX(0px) translateY(0px); opacity: 1;}
+        }
+        .child1{
+            left: 180px;
+            border-bottom-left-radius: 20px;
+            background-color: #ffffff7a;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+        .ani1{
+            animation: child1 0.8s ease-in-out ;
+            animation-delay: 0s;
+            animation-fill-mode: both;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="main">
+        <div class="container">
+            <div class="element"></div>
+            <div class="child1 subboxes">
+                <h3>Hi!</h3>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const child1 = document.querySelector(".child1");
+        const element1 = document.querySelector(".element");
+
+        function onClickBtn1(){
+            child1.classList.add("ani1");
+            element1.classList.add("clipelem");
+        }
+
+        element1.addEventListener("click", () => {
+            onClickBtn1();
+        })
+    </script>
+</body>
+</html>
